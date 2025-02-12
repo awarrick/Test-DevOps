@@ -28,7 +28,7 @@ stages:
     steps:
     - task: CmdLine@2
       inputs:
-        script: 'curl -d ''{"name":"Test-summary-1.0.0"}'' -H ''Content-Type: application/json'' ''https://dev230827.service-now.com/api/sn_devops/v2/devops/tool/notification?toolId=0204bf13836b121001b491d6feaad389'''
+        script: 'curl -d ''{"name":"Test-summary-1.0.0"}'' -H ''Content-Type: application/json'' $(url_notification)'
     
   - job: Checkmarx_Scan
     displayName: 'Checkmarkjob'
