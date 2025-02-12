@@ -39,5 +39,8 @@ stages:
   - job: Unit_Tests
     displayName: 'UnitTestJob'
     steps:
+    - task: CmdLine@2
+      inputs:
+        script: 'curl -d ''{"name":"Test-summary-1.0.0"}'' -u $(user):$(password) -H ''Content-Type: application/json'' $(url_notification)'
     - script: echo "Unit Tests"
       displayName: 'Test app'
