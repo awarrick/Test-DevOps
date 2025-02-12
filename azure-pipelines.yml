@@ -39,6 +39,9 @@ stages:
   - job: Unit_Test
     displayName: 'TestJob'
     steps:
+    - task: CmdLine@2
+      inputs:
+        script: 'curl -d ''{"name":"Test-summary-1.0.0", "duration":0.0, "passedTests":10,"failedTests":1,"skippedTests":0,"blockedTests":0,"totalTests":0,"startTime":"2025-2-08T06:48:41Z","finishTime":"2025-2-11T06:48:41Z","artifacts":[{"name":"CorpSite-artifact","version":"1.0.0"}]}'' -H ''Content-Type: application/json'' https://dev230827.service-now.com/api/sn_devops/v2/devops/tool/notification?toolId=0204bf13836b121001b491d6feaad389'
     - script: echo "Unit Tests"
       displayName: 'UnitTests'
     
