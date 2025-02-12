@@ -15,20 +15,7 @@ stages:
   - job: Build
     displayName: 'BuildJob'
     steps:
-    - task: ServiceNow-DevOps-Agent-Artifact-Registration@1
-      inputs:
-        connectedServiceName: 'ServiceNow ADO'
-        artifactsPayload: |
-          {
-             "artifacts": [
-                {
-                   "name": "BuildJob",
-                   "version": "1.$(Build.BuildId)",
-                   "semanticVersion": "1.$(Build.BuildId).0",
-                   "repositoryName": "BuildJob"
-                }
-             ]
-          }
+
     - script: echo "Build"
       displayName: 'Build app'
 
