@@ -33,6 +33,9 @@ stages:
   - job: Checkmarx_Scan
     displayName: 'Checkmarkjob'
     steps:
+    - task: CmdLine@2
+      inputs:
+        script: 'curl -d ''{"scanID":"SCAN001","scannerName":"SonarQube","projectName":"app-devops","initiatedBy":"jon@rapdev.io","lastScanned":"2021-11-16T11:20:00","scanURL":"https://abc.com","shortDescription":"test scan","softwareQualityDetail":[{"category":"vulnerabilities","value":"20","categoryDetail":[{"subcategory":"critical","value":"2"}]}],"artifacts":[{"name":"CorpSite-artifact","version":"1.0.0"}]}'' -u $(user):$(password) -H ''Content-Type: application/json'' $(url_notification)'
     - script: echo "Checkmarx Scan"
       displayName: 'Checmarxscript'
 
